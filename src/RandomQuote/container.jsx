@@ -39,10 +39,10 @@ class RamdomQuoteContainer extends Component {
   render() {
     const quote = this.props.quote;
     return (
-      <RamdomQuote
-        getQuote={this.getQuote}
-        quote={quote}
-      />
+      <div>
+      
+
+      </div>
     );
   }
 }

@@ -13,5 +13,5 @@ const desctinationPath = path.resolve(__dirname, '../../build');
 
 fs.copySync(sourcePath, desctinationPath, {
   dereference: true,
-  filter: file => file !== 'public/index.html'
+  filter: file => file !== 'public/index.html',
 });
