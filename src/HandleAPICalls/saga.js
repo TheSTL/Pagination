@@ -7,7 +7,7 @@ import { HANDLE_API_CALLS } from './constants';
 // function that makes the api request and returns a Promise for response
 function callToAPI(method, url, data) {
   // console.log(params);
-  axios.defaults.headers.common['x-auth-token']='eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibW9iaWxlIjoiODcwMDUyMzkxMCIsImlhdCI6MTU2NTAwNTAxNiwiZXhwIjoxNTY1MDkxNDE2fQ.n-IRaXAkNpNQIHKM-bq2P34uox4g4BVlAhg2pvz5zqNiFEZEdsF1CcYXSOSjvsHF'
+  axios.defaults.headers.common['x-auth-token']='eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibW9iaWxlIjoiODcwMDUyMzkxMCIsImlhdCI6MTU2NTE1Nzk1MywiZXhwIjoxNTY1MjQ0MzUzfQ.HziZP0olQdeX4RSpMNaB7SJZA02K4MfxAjmT8PxcmghLvv-Mjmu04wWcFdLscyjt';
   return axios({
     method,
     url,
