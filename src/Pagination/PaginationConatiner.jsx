@@ -31,7 +31,7 @@ class PaginationConatiner extends Component {
 
         this.setState(prevState => ({
           currentPage: 1,
-          totalPage: response.data.total / prevState.onePage,
+          totalPage: parseInt(response.data.total / prevState.onePage),
           userList: response.data.list,
           loading: false
         }));
@@ -71,14 +71,25 @@ class PaginationConatiner extends Component {
       }
     );
   };
+
+  onClick = e => {
+    console.log(e);
+  };
+
   getData = () => {
     const { userList } = this.state;
     return (
-      <Table celled>
+      <Table celled sortable>
         <Table.Header>
           <Table.Row>
             {Object.keys(userList[0]).map(key => (
-              <Table.HeaderCell key={key}>{key}</Table.HeaderCell>
+              <Table.HeaderCell
+                key={key}
+                onClick={this.onClick}
+                sorted="ascending"
+              >
+                {key}
+              </Table.HeaderCell>
             ))}
           </Table.Row>
         </Table.Header>

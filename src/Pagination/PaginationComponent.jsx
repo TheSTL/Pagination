@@ -4,7 +4,7 @@ import { Pagination, Header } from "semantic-ui-react";
 export default function PaginationComponent({ total, change, getData }) {
   return (
     <div className="Pagination">
-      <Header as="h1">Vendor Machine</Header>
+      <Header as="h1">Order Details</Header>
       {getData()}
       <Pagination
         defaultActivePage={1}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script");
 body {
   height: 100%;
 }
@@ -9,16 +9,23 @@ h1 {
   font-size: 5em;
   text-align: center;
   padding-top: 15vh;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
 }
 
-#root{
+#root {
   display: flex;
   justify-content: center;
 }
-.Pagination{
+.Pagination {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ui.pagination.menu {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+.ui.header:first-child {
+  margin-top: 1em;
 }
