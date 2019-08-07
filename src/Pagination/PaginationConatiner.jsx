@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getDataFromAPI } from "../HandleAPICalls/actions";
-
+import _ from "lodash";
 import { connect } from "react-redux";
 import { Table, Header } from "semantic-ui-react";
 import PaginationComponent from "./PaginationComponent";
@@ -11,7 +11,9 @@ const InitialState = {
   totalPage: 0,
   currentPage: 1,
   loading: true,
-  err: ""
+  err: "",
+  column: null,
+  direction: null
 };
 
 class PaginationConatiner extends Component {
@@ -72,12 +74,26 @@ class PaginationConatiner extends Component {
     );
   };
 
-  onClick = e => {
-    console.log(e);
+  onClick = columnName => {
+    const { column } = this.state;
+    if (columnName != column) {
+      this.setState(prev => ({
+        userList: _.sortBy(prev.userList, [columnName]),
+        column: columnName,
+        direction: "ascending"
+      }));
+      return;
+    }
+
+    this.setState(prev => ({
+      userList: prev.userList.reverse(),
+      direction: prev.direction == "ascending" ? "descending" : "ascending"
+    }));
   };
 
   getData = () => {
-    const { userList } = this.state;
+    const { userList, column, direction } = this.state;
+
     return (
       <Table celled sortable>
         <Table.Header>
@@ -85,8 +101,8 @@ class PaginationConatiner extends Component {
             {Object.keys(userList[0]).map(key => (
               <Table.HeaderCell
                 key={key}
-                onClick={this.onClick}
-                sorted="ascending"
+                onClick={() => this.onClick(key)}
+                sorted={column === key ? direction : null}
               >
                 {key}
               </Table.HeaderCell>
