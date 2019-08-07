@@ -79,7 +79,7 @@ class PaginationConatiner extends Component {
     if (columnName != column) {
       this.setState(prev => ({
         userList: _.sortBy(prev.userList, function(data) {
-          return data[columnName].toLowerCase();
+          return String(data[columnName]).toLowerCase();
         }),
         column: columnName,
         direction: "ascending"
